@@ -1,0 +1,28 @@
+ubuntu@lab3-server:~$ uname -m
+x86_64
+ubuntu@lab3-server:~$ which file readelf objdump strings nm gdb
+/usr/bin/file
+/usr/bin/readelf
+/usr/bin/objdump
+/usr/bin/strings
+/usr/bin/nm
+ubuntu@lab3-server:~$ sudo apt update && sudo apt install -y binutils gdb file
+[...]
+binutils ya está en su versión más reciente (2.46-3ubuntu2).
+file ya está en su versión más reciente (1:5.46-5build2).
+Instalando:
+  gdb
+[...]
+Configurando gdb (17.1-2ubuntu1) ...
+
+ubuntu@lab3-server:~$ mkdir -p ~/fdsi-reverse/evidence && ip -br a && systemctl is-active ssh
+lo               UNKNOWN        127.0.0.1/8 ::1/128
+ens33            UP             192.168.61.129/24 metric 100
+active
+
+# Binarios copiados desde Windows con scp; integridad verificada en la VM:
+ubuntu@lab3-server:~/fdsi-reverse$ bash baseline.sh ~/fdsi-reverse > evidence/baseline.txt 2>&1 && grep -A3 "Verificación" evidence/baseline.txt
+## 3. Verificación contra hashes oficiales de la guía
+crackme_level1: OK
+crackme_level2: OK
+crackme_level2_stripped: OK

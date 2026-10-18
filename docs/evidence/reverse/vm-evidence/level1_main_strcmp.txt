@@ -1,0 +1,20 @@
+ubuntu@lab3-server:~/fdsi-reverse$ objdump -d -M intel crackme_level1 > evidence/level1_objdump.txt && grep -B10 -A8 "call.*strcmp" evidence/level1_objdump.txt
+  40121b:       b8 00 00 00 00          mov    eax,0x0
+  401220:       e8 2b fe ff ff          call   401050 <printf@plt>
+  401225:       b8 01 00 00 00          mov    eax,0x1
+  40122a:       eb 4d                   jmp    401279 <main+0xa1>
+  40122c:       48 8b 45 e0             mov    rax,QWORD PTR [rbp-0x20]
+  401230:       48 83 c0 08             add    rax,0x8
+  401234:       48 8b 00                mov    rax,QWORD PTR [rax]
+  401237:       48 8b 55 f8             mov    rdx,QWORD PTR [rbp-0x8]
+  40123b:       48 89 d6                mov    rsi,rdx
+  40123e:       48 89 c7                mov    rdi,rax
+  401241:       e8 1a fe ff ff          call   401060 <strcmp@plt>
+  401246:       85 c0                   test   eax,eax
+  401248:       75 1b                   jne    401265 <main+0x8d>
+  40124a:       48 8d 05 f0 0d 00 00    lea    rax,[rip+0xdf0]        # 402041 <_IO_stdin_used+0x41>
+  401251:       48 89 c7                mov    rdi,rax
+  401254:       e8 e7 fd ff ff          call   401040 <puts@plt>
+  401259:       e8 f8 fe ff ff          call   401156 <print_flag>
+  40125e:       b8 00 00 00 00          mov    eax,0x0
+  401263:       eb 14                   jmp    401279 <main+0xa1>

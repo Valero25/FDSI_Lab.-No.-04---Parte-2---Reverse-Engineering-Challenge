@@ -1,0 +1,101 @@
+/lib64/ld-linux-x86-64.so.2
+putchar
+__libc_start_main
+printf
+strcmp
+libc.so.6
+GLIBC_2.34
+GLIBC_2.2.5
+__gmon_start__
+H=0@@
+!).(H
+,3>?49?'H
+REDTEAM-101
+=== FDSI CrackMe Level 1 ===
+Uso: %s <password>
+Access granted.
+Access denied.
+;*3$"
+GCC: (Debian 14.2.0-19) 14.2.0
+password
+putchar
+size_t
+long unsigned int
+unsigned char
+GNU C17 14.2.0 -mtune=generic -march=x86-64 -g -O0 -fno-inline -fasynchronous-unwind-tables
+long int
+strcmp
+print_flag
+short unsigned int
+printf
+short int
+/mnt/data/reverse_fsi_lab/crackme_level1.c
+/home/oai
+/mnt/data/reverse_fsi_lab
+/usr/include
+/usr/lib/gcc/x86_64-linux-gnu/14/include
+string.h
+stdio.h
+stddef.h
+crt1.o
+__abi_tag
+crtstuff.c
+deregister_tm_clones
+__do_global_dtors_aux
+completed.0
+__do_global_dtors_aux_fini_array_entry
+frame_dummy
+__frame_dummy_init_array_entry
+crackme_level1.c
+print_flag
+__FRAME_END__
+_DYNAMIC
+__GNU_EH_FRAME_HDR
+_GLOBAL_OFFSET_TABLE_
+putchar@GLIBC_2.2.5
+__libc_start_main@GLIBC_2.34
+puts@GLIBC_2.2.5
+_edata
+_fini
+printf@GLIBC_2.2.5
+__data_start
+strcmp@GLIBC_2.2.5
+__gmon_start__
+__dso_handle
+_IO_stdin_used
+_dl_relocate_static_pie
+__bss_start
+__TMC_END__
+_init
+.symtab
+.strtab
+.shstrtab
+.note.gnu.property
+.note.gnu.build-id
+.interp
+.gnu.hash
+.dynsym
+.dynstr
+.gnu.version
+.gnu.version_r
+.rela.dyn
+.rela.plt
+.init
+.text
+.fini
+.rodata
+.eh_frame_hdr
+.eh_frame
+.note.ABI-tag
+.init_array
+.fini_array
+.dynamic
+.got.plt
+.data
+.comment
+.debug_aranges
+.debug_info
+.debug_abbrev
+.debug_line
+.debug_str
+.debug_line_str

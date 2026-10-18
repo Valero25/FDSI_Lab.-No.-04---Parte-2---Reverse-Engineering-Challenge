@@ -1,0 +1,38 @@
+ubuntu@lab3-server:~/fdsi-reverse$ objdump -d -M intel --disassemble=print_flag crackme_level1
+
+0000000000401156 <print_flag>:
+  401156:       55                      push   rbp
+  401157:       48 89 e5                mov    rbp,rsp
+  40115a:       48 83 ec 30             sub    rsp,0x30
+  40115e:       48 b8 1c 16 1b 1d 21    movabs rax,0x282e29211d1b161c
+  401165:       29 2e 28
+  401168:       48 ba 33 34 3d 29 05    movabs rdx,0x3f283b05293d3433
+  40116f:       3b 28 3f
+  401172:       48 89 45 d0             mov    QWORD PTR [rbp-0x30],rax
+  401176:       48 89 55 d8             mov    QWORD PTR [rbp-0x28],rdx
+  40117a:       48 b8 3d 29 05 3b 28    movabs rax,0x3f053f283b05293d
+  401181:       3f 05 3f
+  401184:       48 ba 2c 33 3e 3f 34    movabs rdx,0x273f39343f3e332c
+  40118b:       39 3f 27
+  40118e:       48 89 45 da             mov    QWORD PTR [rbp-0x26],rax
+  401192:       48 89 55 e2             mov    QWORD PTR [rbp-0x1e],rdx
+  401196:       c6 45 f7 5a             mov    BYTE PTR [rbp-0x9],0x5a
+  40119a:       48 c7 45 f8 00 00 00    mov    QWORD PTR [rbp-0x8],0x0
+  4011a1:       00
+  4011a2:       eb 20                   jmp    4011c4 <print_flag+0x6e>
+  4011a4:       48 8d 55 d0             lea    rdx,[rbp-0x30]
+  4011a8:       48 8b 45 f8             mov    rax,QWORD PTR [rbp-0x8]
+  4011ac:       48 01 d0                add    rax,rdx
+  4011af:       0f b6 00                movzx  eax,BYTE PTR [rax]
+  4011b2:       32 45 f7                xor    al,BYTE PTR [rbp-0x9]
+  4011b5:       0f b6 c0                movzx  eax,al
+  4011b8:       89 c7                   mov    edi,eax
+  4011ba:       e8 71 fe ff ff          call   401030 <putchar@plt>
+  4011bf:       48 83 45 f8 01          add    QWORD PTR [rbp-0x8],0x1
+  4011c4:       48 83 7d f8 19          cmp    QWORD PTR [rbp-0x8],0x19
+  4011c9:       76 d9                   jbe    4011a4 <print_flag+0x4e>
+  4011cb:       bf 0a 00 00 00          mov    edi,0xa
+  4011d0:       e8 5b fe ff ff          call   401030 <putchar@plt>
+  4011d5:       90                      nop
+  4011d6:       c9                      leave
+  4011d7:       c3                      ret

@@ -1,0 +1,24 @@
+ubuntu@lab3-server:~/fdsi-reverse$ gdb -q -batch -ex 'set debuginfod enabled off' -ex 'set disassembly-flavor intel' -ex 'break validate_key' -ex 'run FDSI-REVERSE-2026' -ex 'x/s $rdi' -ex 'break *0x4011b9' -ex 'continue' -ex 'info registers rax rcx' -ex 'stepi' -ex 'info registers rax' -ex 'delete' -ex 'finish' -ex 'continue' ./crackme_level2 2>&1 | tee evidence/gdb_ok.txt
+Breakpoint 1 at 0x401162: file /mnt/data/reverse_fsi_lab/crackme_level2.c, line 10.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/usr/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, validate_key (candidate=0x7fffffffe60e "FDSI-REVERSE-2026") at /mnt/data/reverse_fsi_lab/crackme_level2.c:10
+warning: 10     /mnt/data/reverse_fsi_lab/crackme_level2.c: No such file or directory
+0x7fffffffe60e: "FDSI-REVERSE-2026"
+Breakpoint 2 at 0x4011b9: file /mnt/data/reverse_fsi_lab/crackme_level2.c, line 15.
+
+Breakpoint 2, validate_key (candidate=0x7fffffffe60e "FDSI-REVERSE-2026") at /mnt/data/reverse_fsi_lab/crackme_level2.c:15
+15      in /mnt/data/reverse_fsi_lab/crackme_level2.c
+rax            0x23                35
+rcx            0x46                70
+0x00000000004011bb      15      in /mnt/data/reverse_fsi_lab/crackme_level2.c
+rax            0x65                101
+0x00000000004012d2 in main (argc=2, argv=0x7fffffffe368) at /mnt/data/reverse_fsi_lab/crackme_level2.c:36
+36      in /mnt/data/reverse_fsi_lab/crackme_level2.c
+Value returned is $1 = 1
+=== FDSI CrackMe Level 2 ===
+Hint: static + dynamic analysis.
+License accepted.
+FLAG{ghidra_plus_gdb}
+[Inferior 1 (process 11354) exited normally]

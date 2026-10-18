@@ -1,0 +1,40 @@
+ubuntu@lab3-server:~/fdsi-reverse$ ./crackme_level2 ; ./crackme_level2 AAAA
+=== FDSI CrackMe Level 2 ===
+Hint: static + dynamic analysis.
+Uso: ./crackme_level2 <license-key>
+=== FDSI CrackMe Level 2 ===
+Hint: static + dynamic analysis.
+Invalid license.
+
+ubuntu@lab3-server:~/fdsi-reverse$ strings -n 5 crackme_level2 | tee evidence/level2_strings.txt | head -25
+k/lib64/ld-linux-x86-64.so.2
+putchar
+strlen
+__libc_start_main
+printf
+libc.so.6
+GLIBC_2.34
+GLIBC_2.2.5
+__gmon_start__
+H=0@@
+q{vpLP_^H
+SEVhG[BDH
+[BDhPSUJH
+=== FDSI CrackMe Level 2 ===
+Hint: static + dynamic analysis.
+Uso: %s <license-key>
+License accepted.
+Invalid license.
+;*3$"
+GCC: (Debian 14.2.0-19) 14.2.0
+putchar
+size_t
+validate_key
+expected
+long unsigned int
+
+ubuntu@lab3-server:~/fdsi-reverse$ ./crackme_level2 FDSI-REVERSE-2026
+=== FDSI CrackMe Level 2 ===
+Hint: static + dynamic analysis.
+License accepted.
+FLAG{ghidra_plus_gdb}

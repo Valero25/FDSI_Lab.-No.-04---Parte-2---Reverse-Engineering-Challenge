@@ -1,0 +1,4 @@
+ubuntu@lab3-server:~/fdsi-reverse$ ./crackme_level1 REDTEAM-101 | tee evidence/level1_result.txt
+=== FDSI CrackMe Level 1 ===
+Access granted.
+FLAG{strings_are_evidence}

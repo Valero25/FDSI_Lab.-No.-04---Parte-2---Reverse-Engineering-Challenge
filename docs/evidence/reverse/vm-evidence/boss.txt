@@ -1,0 +1,40 @@
+ubuntu@lab3-server:~/fdsi-reverse$ file crackme_level2_stripped ; nm crackme_level2_stripped ; nm -D crackme_level2_stripped
+crackme_level2_stripped: ELF 64-bit LSB executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, BuildID[sha1]=df25a1fa020d404f3512421bfcf8c89b417e8554, for GNU/Linux 3.2.0, stripped
+nm: crackme_level2_stripped: no symbols
+                 w __gmon_start__
+                 U __libc_start_main@GLIBC_2.34
+                 U printf@GLIBC_2.2.5
+                 U putchar@GLIBC_2.2.5
+                 U puts@GLIBC_2.2.5
+                 U strlen@GLIBC_2.2.5
+
+ubuntu@lab3-server:~/fdsi-reverse$ objdump -d -M intel crackme_level2_stripped > evidence/boss_objdump.txt && grep -m1 -B2 -A14 "<.text>:" evidence/boss_objdump.txt
+Disassembly of section .text:
+
+0000000000401070 <.text>:
+  401070:       31 ed                   xor    ebp,ebp
+  401072:       49 89 d1                mov    r9,rdx
+  401075:       5e                      pop    rsi
+  401076:       48 89 e2                mov    rdx,rsp
+  401079:       48 83 e4 f0             and    rsp,0xfffffffffffffff0
+  40107d:       50                      push   rax
+  40107e:       54                      push   rsp
+  40107f:       45 31 c0                xor    r8d,r8d
+  401082:       31 c9                   xor    ecx,ecx
+  401084:       48 c7 c7 67 12 40 00    mov    rdi,0x401267
+  40108b:       ff 15 47 2f 00 00       call   QWORD PTR [rip+0x2f47]        # 403fd8 <printf@plt+0x2f78>
+  401091:       f4                      hlt
+  401092:       66 2e 0f 1f 84 00 00    cs nop WORD PTR [rax+rax*1+0x0]
+  401099:       00 00 00
+
+ubuntu@lab3-server:~/fdsi-reverse$ grep -n -E "call.*strlen|and +eax,0x3|xor +eax,ecx|sete" evidence/boss_objdump.txt
+119:  401171:   e8 da fe ff ff          call   401050 <strlen@plt>
+134:  4011a8:   83 e0 03                and    eax,0x3
+138:  4011b9:   31 c8                   xor    eax,ecx
+152:  4011eb:   0f 94 c0                sete   al
+
+ubuntu@lab3-server:~/fdsi-reverse$ ./crackme_level2_stripped FDSI-REVERSE-2026
+=== FDSI CrackMe Level 2 ===
+Hint: static + dynamic analysis.
+License accepted.
+FLAG{ghidra_plus_gdb}

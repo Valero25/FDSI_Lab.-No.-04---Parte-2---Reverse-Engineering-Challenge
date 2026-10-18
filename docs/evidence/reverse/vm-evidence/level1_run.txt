@@ -1,0 +1,5 @@
+ubuntu@lab3-server:~/fdsi-reverse$ ./crackme_level1 ; ./crackme_level1 prueba
+=== FDSI CrackMe Level 1 ===
+Uso: ./crackme_level1 <password>
+=== FDSI CrackMe Level 1 ===
+Access denied.

@@ -1,0 +1,48 @@
+ubuntu@lab3-server:~/fdsi-reverse$ objdump -d -M intel --disassemble=validate_key crackme_level2
+
+0000000000401156 <validate_key>:
+  401156:       55                      push   rbp
+  401157:       48 89 e5                mov    rbp,rsp
+  40115a:       48 83 ec 30             sub    rsp,0x30
+  40115e:       48 89 7d d8             mov    QWORD PTR [rbp-0x28],rdi
+  401162:       48 c7 45 e8 11 00 00    mov    QWORD PTR [rbp-0x18],0x11
+  401169:       00
+  40116a:       48 8b 45 d8             mov    rax,QWORD PTR [rbp-0x28]
+  40116e:       48 89 c7                mov    rdi,rax
+  401171:       e8 da fe ff ff          call   401050 <strlen@plt>
+  401176:       48 39 45 e8             cmp    QWORD PTR [rbp-0x18],rax
+  40117a:       74 07                   je     401183 <validate_key+0x2d>
+  40117c:       b8 00 00 00 00          mov    eax,0x0
+  401181:       eb 6e                   jmp    4011f1 <validate_key+0x9b>
+  401183:       c7 45 fc 00 00 00 00    mov    DWORD PTR [rbp-0x4],0x0
+  40118a:       48 c7 45 f0 00 00 00    mov    QWORD PTR [rbp-0x10],0x0
+  401191:       00
+  401192:       eb 49                   jmp    4011dd <validate_key+0x87>
+  401194:       48 8b 55 d8             mov    rdx,QWORD PTR [rbp-0x28]
+  401198:       48 8b 45 f0             mov    rax,QWORD PTR [rbp-0x10]
+  40119c:       48 01 d0                add    rax,rdx
+  40119f:       0f b6 00                movzx  eax,BYTE PTR [rax]
+  4011a2:       89 c1                   mov    ecx,eax
+  4011a4:       48 8b 45 f0             mov    rax,QWORD PTR [rbp-0x10]
+  4011a8:       83 e0 03                and    eax,0x3
+  4011ab:       48 89 c2                mov    rdx,rax
+  4011ae:       48 8d 05 d6 0e 00 00    lea    rax,[rip+0xed6]        # 40208b <k.1>
+  4011b5:       0f b6 04 02             movzx  eax,BYTE PTR [rdx+rax*1]
+  4011b9:       31 c8                   xor    eax,ecx
+  4011bb:       88 45 e7                mov    BYTE PTR [rbp-0x19],al
+  4011be:       48 8d 15 cb 0e 00 00    lea    rdx,[rip+0xecb]        # 402090 <expected.0>
+  4011c5:       48 8b 45 f0             mov    rax,QWORD PTR [rbp-0x10]
+  4011c9:       48 01 d0                add    rax,rdx
+  4011cc:       0f b6 00                movzx  eax,BYTE PTR [rax]
+  4011cf:       32 45 e7                xor    al,BYTE PTR [rbp-0x19]
+  4011d2:       0f b6 c0                movzx  eax,al
+  4011d5:       09 45 fc                or     DWORD PTR [rbp-0x4],eax
+  4011d8:       48 83 45 f0 01          add    QWORD PTR [rbp-0x10],0x1
+  4011dd:       48 8b 45 f0             mov    rax,QWORD PTR [rbp-0x10]
+  4011e1:       48 3b 45 e8             cmp    rax,QWORD PTR [rbp-0x18]
+  4011e5:       72 ad                   jb     401194 <validate_key+0x3e>
+  4011e7:       83 7d fc 00             cmp    DWORD PTR [rbp-0x4],0x0
+  4011eb:       0f 94 c0                sete   al
+  4011ee:       0f b6 c0                movzx  eax,al
+  4011f1:       c9                      leave
+  4011f2:       c3                      ret

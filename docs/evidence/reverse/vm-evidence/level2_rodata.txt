@@ -1,0 +1,16 @@
+ubuntu@lab3-server:~/fdsi-reverse$ objdump -s -j .rodata crackme_level2
+
+crackme_level2:     file format elf64-x86-64
+
+Contents of section .rodata:
+ 402000 01000200 00000000 00000000 00000000  ................
+ 402010 3d3d3d20 46445349 20437261 636b4d65  === FDSI CrackMe
+ 402020 204c6576 656c2032 203d3d3d 00000000   Level 2 ===....
+ 402030 48696e74 3a207374 61746963 202b2064  Hint: static + d
+ 402040 796e616d 69632061 6e616c79 7369732e  ynamic analysis.
+ 402050 0055736f 3a202573 203c6c69 63656e73  .Uso: %s <licens
+ 402060 652d6b65 793e0a00 4c696365 6e736520  e-key>..License
+ 402070 61636365 70746564 2e00496e 76616c69  accepted..Invali
+ 402080 64206c69 63656e73 652e0023 51176a00  d license..#Q.j.
+ 402090 65154423 0e03523c 6603442f 0e632758  e.D#..R<f.D/.c'X
+ 4020a0 15                                   .
